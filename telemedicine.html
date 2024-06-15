@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemedicine Platform</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .background {
+            background-image: url('doctor-background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            position: relative;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            max-width: 600px;
+            margin: 50px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="form-container">
+            <h1>Telemedicine Platform</h1>
+            <form id="telemedicineForm">
+                <div class="form-group">
+                    <label for="service">What medical service do you want?</label>
+                    <textarea id="service" name="service" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="background">Your medical background</label>
+                    <textarea id="background" name="background" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="rating">How do you rate our services?</label>
+                    <select id="rating" name="rating" required>
+                        <option value="">Select a rating</option>
+                        <option value="1">1 - Very Poor</option>
+                        <option value="2">2 - Poor</option>
+                        <option value="3">3 - Average</option>
+                        <option value="4">4 - Good</option>
+                        <option value="5">5 - Excellent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('telemedicineForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Collect form data
+            const service = document.getElementById('service').value;
+            const background = document.getElementById('background').value;
+            const rating = document.getElementById('rating').value;
+            
+            // Validate form data
+            if (service && background && rating) {
+                alert('Thank you for your feedback!');
+                // You can add code here to send the data to a server or process it as needed
+                console.log('Medical Service:', service);
+                console.log('Medical Background:', background);
+                console.log('Rating:', rating);
+                
+                // Clear the form
+                document.getElementById('telemedicineForm').reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+</html>
